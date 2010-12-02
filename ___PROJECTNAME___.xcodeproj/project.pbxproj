@@ -408,6 +408,7 @@
 				GCC_PREFIX_HEADER = "RRF___PROJECTNAME____Prefix.pch";
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/Bundles";
+				OTHER_CFLAGS = "-DDEBUG";
 				PRODUCT_NAME = "RRF___PROJECTNAME___";
 				WRAPPER_EXTENSION = bundle;
 			};
@@ -475,6 +476,7 @@
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
 				INFOPLIST_FILE = "MockApplication-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
+				OTHER_CFLAGS = "-DDEBUG";
 				OTHER_LDFLAGS = (
 					"-framework",
 					Foundation,
