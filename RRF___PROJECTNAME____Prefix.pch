@@ -8,8 +8,9 @@
 
 // DEBUG-ONLY LOGGING
 /////////////////////
-#ifdef DEBUG
-#  define DLog(...) NSLog(__VA_ARGS__)
+#define ELog(...) NSLog(@"%s %@",__PRETTY_FUNCTION__,[NSString stringWithFormat:__VA_ARGS__])
+#ifdef DEBUG 
+  #define DLog(...) NSLog(@"%s %@",__PRETTY_FUNCTION__,[NSString stringWithFormat:__VA_ARGS__])
 #else
-#  define DLog(...) /* */
+  #define DLog(...) do { } while(0)
 #endif
