@@ -7,6 +7,16 @@
 //  Copyright ___YEAR___, Residential Research Facility,
 //  University of Kentucky. All Rights Reserved.
 /////////////////////////////////////////////////////////////
+
+#pragma mark MACRO DEFINITIONS
+#define ELog(...) NSLog(@"%s %@",__PRETTY_FUNCTION__,[NSString stringWithFormat:__VA_ARGS__])
+#ifdef DEBUG 
+  #define DLog(...) NSLog(@"%s %@",__PRETTY_FUNCTION__,[NSString stringWithFormat:__VA_ARGS__])
+#else
+  #define DLog(...) do { } while(0)
+#endif
+
+
 #import <Cocoa/Cocoa.h>
 #import <TKUtility/TKUtility.h>
 
