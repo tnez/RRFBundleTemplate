@@ -1,43 +1,40 @@
-////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
 //  RRF___PROJECTNAME___Controller.h
 //  RRF___PROJECTNAME___
-//  --------------------------------------------------------
+//  ----------------------------------------------------------------------------
 //  Author: ___FULLUSERNAME___
 //  Created: ___DATE___
 //  Copyright ___YEAR___, Residential Research Facility,
 //  University of Kentucky. All Rights Reserved.
-/////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
 #import <Cocoa/Cocoa.h>
 #import <TKUtility/TKUtility.h>
 
 @interface RRF___PROJECTNAME___Controller : NSObject <TKComponentBundleLoading> {
 
-    // PROTOCOL MEMBERS //////////////////////////////////////////////////////
-    //////////////////////////////////////////////////////////////////////////    
-    NSDictionary                                                *definition;
-    id                                                          delegate;
-    NSString                                                    *errorLog;
-    IBOutlet NSView                                             *view;
+  // PROTOCOL MEMBERS //////////////////////////////////////////////////////////
+  //////////////////////////////////////////////////////////////////////////////    
+  NSDictionary                                                *definition;
+  id                                                          delegate;
+  NSString                                                    *errorLog;
+  IBOutlet NSView                                             *view;
 
-    // ADDITIONAL MEMBERS ////////////////////////////////////////////////////
-    //////////////////////////////////////////////////////////////////////////
+  // ADDITIONAL MEMBERS ////////////////////////////////////////////////////////
+  //////////////////////////////////////////////////////////////////////////////
     
 }
 
-// PROTOCOL PROPERTIES ///////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////
+// PROTOCOL PROPERTIES /////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
 @property (assign)              NSDictionary                    *definition;
 @property (assign)              id <TKComponentBundleLoading>   delegate;
 @property (nonatomic, retain)   NSString                        *errorLog;
 @property (assign)              IBOutlet NSView                 *view;
 
-// ADDITIONAL PROPERTIES /////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////
-
-
+// ADDITIONAL PROPERTIES ///////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
 
 #pragma mark REQUIRED PROTOCOL METHODS
-
 /**
  Start the component - will receive this message from the component controller
  */
@@ -54,17 +51,20 @@
 - (NSString *)errorLog;
 
 /**
- Perform any and all error checking required by the component - return YES if passed
+ Perform any and all error checking required by the component - return YES if
+ passed
  */
 - (BOOL)isClearedToBegin;
 
 /**
- Returns the file name containing the raw data that will be appended to the data file
+ Returns the file name containing the raw data that will be appended to the 
+ data file
  */
 - (NSString *)rawDataFile;
 
 /**
- Perform actions required to recover from crash using the given raw data passed as string
+ Perform actions required to recover from crash using the given raw data passed 
+ as string
  */
 - (void)recover;
 
@@ -74,13 +74,15 @@
 - (void)setDefinition: (NSDictionary *)aDictionary;
 
 /**
- Accept assignment for the component delegate - The component controller will assign itself as the delegate
+ Accept assignment for the component delegate - The component controller will 
+ assign itself as the delegate
  Note: The new delegate must adopt the TKComponentBundleDelegate protocol
  */
 - (void)setDelegate: (id <TKComponentBundleDelegate> )aDelegate;
 
 /**
- Perform any and all initialization required by component - load any nib files and perform all required initialization
+ Perform any and all initialization required by component - load any nib files
+ and perform all required initialization
  */
 - (void)setup;
 
@@ -104,13 +106,9 @@
  */
 - (NSView *)mainView;
 
-
-
-
 #pragma mark OPTIONAL PROTOCOL METHODS
-// UNCOMMENT ANY OF THE FOLLOWING METHODS IF THEIR BEHAVIOR IS DESIRED //
-/////////////////////////////////////////////////////////////////////////
-
+// UNCOMMENT ANY OF THE FOLLOWING METHODS IF THEIR BEHAVIOR IS DESIRED
+////////////////////////////////////////////////////////////////////////////////
 /**
  Run header if something other than default is required
  */
@@ -126,38 +124,25 @@
  */
 //- (NSString *)summary;
 
-
-
-
 #pragma mark ADDITIONAL METHODS
 // PLACE ANY NON-PROTOCOL METHODS HERE //
 /////////////////////////////////////////
-
 /**
  Add the error to an ongoing error log
  */
 - (void)registerError: (NSString *)theError;
 
-
-
-
 #pragma mark Preference Keys
-// HERE YOU DEFINE KEY REFERENCES FOR ANY PREFERENCE VALUES                 //
-// ex: extern NSString * const RRF___PROJECTNAME___NameOfPreferenceKey;     //
-//////////////////////////////////////////////////////////////////////////////
-extern NSString * const RRF___PROJECTNAME___TaskNameKey;
-extern NSString * const RRF___PROJECTNAME___DataDirectoryKey;
-
-
-
+// HERE YOU DEFINE KEY REFERENCES FOR ANY PREFERENCE VALUES
+// ex: NSString * const RRF___PROJECTNAME___NameOfPreferenceKey;
+////////////////////////////////////////////////////////////////////////////////
+NSString * const RRF___PROJECTNAME___TaskNameKey;
+NSString * const RRF___PROJECTNAME___DataDirectoryKey;
 
 #pragma mark Internal Strings
-// HERE YOU DEFINE KEYS FOR CONSTANT STRINGS //
-///////////////////////////////////////////////
-extern NSString * const RRF___PROJECTNAME___MainNibNameKey;
-
-
-
+// HERE YOU DEFINE KEYS FOR CONSTANT STRINGS
+////////////////////////////////////////////////////////////////////////////////
+NSString * const RRF___PROJECTNAME___MainNibNameKey;
 
 #pragma mark Enumerated Values
 // HERE YOU CAN DEFINE ENUMERATED VALUES
@@ -167,5 +152,6 @@ extern NSString * const RRF___PROJECTNAME___MainNibNameKey;
 //  RRF___PROJECTNAME___SomeOtherDescriptor     = 1,
 //  RRF___PROJECTNAME___AnotherDescriptor       = 2
 // }; typedef NSInteger RRF___PROJECTNAME___BlanketDescriptor;
+////////////////////////////////////////////////////////////////////////////////
 
 @end

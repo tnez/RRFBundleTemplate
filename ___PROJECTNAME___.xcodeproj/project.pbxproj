@@ -30,7 +30,6 @@
 		404B5F2D12524A5600437416 /* RRF___PROJECTNAME___Manifest.plist in Resources */ = {isa = PBXBuildFile; fileRef = 404B5F2C12524A5600437416 /* RRF___PROJECTNAME___Manifest.plist */; };
 		404B5F2E12524A5600437416 /* RRF___PROJECTNAME___Manifest.plist in Resources */ = {isa = PBXBuildFile; fileRef = 404B5F2C12524A5600437416 /* RRF___PROJECTNAME___Manifest.plist */; };
 		4063B2B512551F490096BFE1 /* RRF___PROJECTNAME___.bundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8D5B49B6048680CD000E48DA /* RRF___PROJECTNAME___.bundle */; };
-		40C04C52122D5921003E8D1C /* TKUtility.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40340010122D5809003CABA9 /* TKUtility.framework */; };
 		8D5B49B0048680CD000E48DA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C167DFE841241C02AAC07 /* InfoPlist.strings */; };
 		8D5B49B4048680CD000E48DA /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */; };
 /* End PBXBuildFile section */
@@ -66,16 +65,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		40C04C4D122D5918003E8D1C /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				40C04C52122D5921003E8D1C /* TKUtility.framework in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -87,7 +76,7 @@
 		40340002122D574E003CABA9 /* RRF___PROJECTNAME___Controller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RRF___PROJECTNAME___Controller.m"; sourceTree = "<group>"; };
 		40340006122D575E003CABA9 /* RRF___PROJECTNAME____Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RRF___PROJECTNAME____Prefix.pch"; sourceTree = "<group>"; };
 		4034000C122D57F9003CABA9 /* RRF___PROJECTNAME___MainNib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = "RRF___PROJECTNAME___MainNib.xib"; sourceTree = "<group>"; };
-		40340010122D5809003CABA9 /* TKUtility.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TKUtility.framework; sourceTree = "<group>"; };
+		40340010122D5809003CABA9 /* TKUtility.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TKUtility.framework; path = /Library/Frameworks/TKUtility.framework; sourceTree = "<absolute>"; };
 		404B5EB61250B54E00437416 /* MockApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MockApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		404B5EB81250B54E00437416 /* MockApplication-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "MockApplication-Info.plist"; path = "Library/Xcode/Project Templates/Bundle/RRF Bundle/MockApplication-Info.plist"; sourceTree = DEVELOPER_DIR; };
 		404B5EBE1250B59C00437416 /* TKComponentConfigurationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TKComponentConfigurationView.h; sourceTree = "<group>"; };
@@ -145,8 +134,6 @@
 			children = (
 				404B5EBD1250B59C00437416 /* Testing */,
 				08FB77AFFE84173DC02AAC07 /* Classes */,
-				40340001122D574E003CABA9 /* RRF___PROJECTNAME___Controller.h */,
-				40340002122D574E003CABA9 /* RRF___PROJECTNAME___Controller.m */,
 				32C88E010371C26100C91783 /* Other Sources */,
 				089C167CFE841241C02AAC07 /* Resources */,
 				089C1671FE841209C02AAC07 /* Frameworks and Libraries */,
@@ -178,6 +165,8 @@
 		08FB77AFFE84173DC02AAC07 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				40340001122D574E003CABA9 /* RRF___PROJECTNAME___Controller.h */,
+				40340002122D574E003CABA9 /* RRF___PROJECTNAME___Controller.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -284,10 +273,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1DEB913A08733D840010E9CD /* Build configuration list for PBXNativeTarget "___PROJECTNAME___" */;
 			buildPhases = (
-				8D5B49AF048680CD000E48DA /* Resources */,
 				8D5B49B1048680CD000E48DA /* Sources */,
 				8D5B49B3048680CD000E48DA /* Frameworks */,
-				40C04C4D122D5918003E8D1C /* CopyFiles */,
+				8D5B49AF048680CD000E48DA /* Resources */,
 			);
 			buildRules = (
 			);
@@ -438,10 +426,12 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_ENABLE_OBJC_GC = supported;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = "-DDEBUG";
 				PREBINDING = NO;
 				SDKROOT = macosx10.5;
 			};
@@ -452,6 +442,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_ENABLE_OBJC_GC = supported;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
