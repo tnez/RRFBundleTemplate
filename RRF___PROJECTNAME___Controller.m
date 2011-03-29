@@ -12,6 +12,7 @@
 #define RRFLogToTemp(fmt, ...) [delegate logStringToDefaultTempFile:[NSString stringWithFormat:fmt,##__VA_ARGS__]]
 
 @implementation RRF___PROJECTNAME___Controller
+
 @synthesize delegate,definition,errorLog,view;  // add any member that has a 
                                                 //property
 
@@ -27,14 +28,12 @@
 }
 
 #pragma mark REQUIRED PROTOCOL METHODS
-
 /**
  Start the component - will receive this message from the component controller
  */
 - (void)begin {
     
 }
-
 /**
  Return a string representation of the data directory
  */
@@ -47,14 +46,12 @@
     return nil;                                 // otherwise, return nil
   }
 }
-
 /**
  Return a string object representing all current errors in log form
  */
 - (NSString *)errorLog {
   return errorLog;
 }
-
 /**
  Perform any and all error checking required by the component - return YES if 
  passed
@@ -62,7 +59,6 @@
 - (BOOL)isClearedToBegin {
   return YES; // this is the default; change as needed
 }
-
 /**
  Returns the file name containing the raw data that will be appended to the data
  file
@@ -70,7 +66,6 @@
 - (NSString *)rawDataFile {
   return [delegate defaultTempFile]; // this is the default implementation
 }
-
 /**
  Perform actions required to recover from crash using the given raw data passed
  as string
@@ -78,14 +73,12 @@
 - (void)recover {
   // if no recovery is needed, nothing need be done here
 }
-
 /**
  Accept assignment for the component definition
  */
 - (void)setDefinition: (NSDictionary *)aDictionary {
   definition = aDictionary;
 }
-
 /**
  Accept assignment for the component delegate - The component controller will 
  assign itself as the delegate
@@ -94,7 +87,6 @@
 - (void)setDelegate: (id <TKComponentBundleDelegate> )aDelegate {
   delegate = aDelegate;
 }
-
 /**
  Perform any and all initialization required by component - load any nib files 
  and perform all required initialization
@@ -113,14 +105,12 @@
     [self registerError:@"Could not load Nib file"];
   }
 }
-
 /**
  Return YES if component should perform recovery actions
  */
 - (BOOL)shouldRecover {
   return NO;  // this is the default; change if needed
 }
-
 /**
  Perform any and all finalization required by component
  */
@@ -140,14 +130,12 @@
   // de-register any possible notifications
   [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
-
 /**
  Return the name of the current task
  */
 - (NSString *)taskName {
   return [definition valueForKey:RRF___PROJECTNAME___TaskNameKey];
 }
-
 /**
  Return the main view that should be presented to the subject
  */
@@ -179,8 +167,9 @@
 #pragma mark ADDITIONAL METHODS
 /** Add additional methods required for operation */
 - (void)registerError: (NSString *)theError {
-    // append the new error to the error log
-    [self setErrorLog:[[errorLog stringByAppendingString:theError] stringByAppendingString:@"\n"]];
+  // append the new error to the error log
+  [self setErrorLog:[[errorLog stringByAppendingString:theError] 
+                     stringByAppendingString:@"\n"]];
 }
 
 #pragma mark Preference Keys
