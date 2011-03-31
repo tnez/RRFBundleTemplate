@@ -110,6 +110,10 @@
  Summary data if desired
  */
 //- (NSString *)summary;
+/**
+ Summary offset -- required if custom summary is used
+ */
+//- (NSUInteger)summaryOffset;
 
 #pragma mark ADDITIONAL METHODS
 // PLACE ANY NON-PROTOCOL METHODS HERE

@@ -163,7 +163,18 @@
 //- (NSString *)summary {
 //
 //}
-        
+/**
+ Summary offset must be provided if a custom summary will be used.
+ See comments below for use.
+ */
+//- (NSUInteger)summaryOffset {
+  // for an overwritting summary, un-comment the following line
+  // return [[[delegate registryForTaskWithOffset:0] valueForKey:TKComponentSummaryStartKey] unsignedIntegerValue];
+  // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  // for an appending summary, un-comment the following line
+  // return [[[delegate registryForTaskWithOffset:0] valueForKey:TKComponentSummaryEndKey] unsignedIntegerValue];
+// }
+
 #pragma mark ADDITIONAL METHODS
 /** Add additional methods required for operation */
 - (void)registerError: (NSString *)theError {
