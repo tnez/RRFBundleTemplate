@@ -9,7 +9,7 @@
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
 			<integer value="560"/>
-			<integer value="461"/>
+			<integer value="368"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -1156,12 +1156,12 @@
 														<object class="NSCustomView" id="1029020540">
 															<reference key="NSNextResponder" ref="712469983"/>
 															<int key="NSvFlags">274</int>
-															<string key="NSFrameSize">{475, 643}</string>
+															<string key="NSFrameSize">{460, 628}</string>
 															<reference key="NSSuperview" ref="712469983"/>
 															<string key="NSClassName">NSView</string>
 														</object>
 													</object>
-													<string key="NSFrame">{{1, 1}, {475, 643}}</string>
+													<string key="NSFrame">{{1, 1}, {460, 628}}</string>
 													<reference key="NSSuperview" ref="725002905"/>
 													<reference key="NSNextKeyView" ref="1029020540"/>
 													<reference key="NSDocView" ref="1029020540"/>
@@ -1170,8 +1170,8 @@
 												</object>
 												<object class="NSScroller" id="28284545">
 													<reference key="NSNextResponder" ref="725002905"/>
-													<int key="NSvFlags">-2147483392</int>
-													<string key="NSFrame">{{397, 1}, {15, 416}}</string>
+													<int key="NSvFlags">256</int>
+													<string key="NSFrame">{{461, 1}, {15, 628}}</string>
 													<reference key="NSSuperview" ref="725002905"/>
 													<reference key="NSTarget" ref="725002905"/>
 													<string key="NSAction">_doScroller:</string>
@@ -1180,8 +1180,8 @@
 												</object>
 												<object class="NSScroller" id="1068494855">
 													<reference key="NSNextResponder" ref="725002905"/>
-													<int key="NSvFlags">-2147483392</int>
-													<string key="NSFrame">{{1, 417}, {396, 15}}</string>
+													<int key="NSvFlags">256</int>
+													<string key="NSFrame">{{1, 629}, {460, 15}}</string>
 													<reference key="NSSuperview" ref="725002905"/>
 													<int key="NSsFlags">1</int>
 													<reference key="NSTarget" ref="725002905"/>
@@ -1192,7 +1192,7 @@
 											<string key="NSFrameSize">{477, 645}</string>
 											<reference key="NSSuperview" ref="16984017"/>
 											<reference key="NSNextKeyView" ref="712469983"/>
-											<int key="NSsFlags">562</int>
+											<int key="NSsFlags">50</int>
 											<reference key="NSVScroller" ref="28284545"/>
 											<reference key="NSHScroller" ref="1068494855"/>
 											<reference key="NSContentView" ref="712469983"/>
@@ -1871,6 +1871,26 @@
 								<string key="NSContents">Test</string>
 								<reference key="NSSupport" ref="191668860"/>
 								<reference key="NSControlView" ref="18755947"/>
+								<int key="NSButtonFlags">-2038284033</int>
+								<int key="NSButtonFlags2">129</int>
+								<string key="NSAlternateContents"/>
+								<string key="NSKeyEquivalent"/>
+								<int key="NSPeriodicDelay">200</int>
+								<int key="NSPeriodicInterval">25</int>
+							</object>
+						</object>
+						<object class="NSButton" id="343813326">
+							<reference key="NSNextResponder" ref="414427165"/>
+							<int key="NSvFlags">289</int>
+							<string key="NSFrame">{{543, 12}, {159, 32}}</string>
+							<reference key="NSSuperview" ref="414427165"/>
+							<bool key="NSEnabled">YES</bool>
+							<object class="NSButtonCell" key="NSCell" id="20660848">
+								<int key="NSCellFlags">67239424</int>
+								<int key="NSCellFlags2">134217728</int>
+								<string key="NSContents">Generate Defintion</string>
+								<reference key="NSSupport" ref="191668860"/>
+								<reference key="NSControlView" ref="343813326"/>
 								<int key="NSButtonFlags">-2038284033</int>
 								<int key="NSButtonFlags2">129</int>
 								<string key="NSAlternateContents"/>
@@ -2618,6 +2638,14 @@
 					</object>
 					<int key="connectionID">565</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">saveDefinitionToDisk:</string>
+						<reference key="source" ref="244688117"/>
+						<reference key="destination" ref="343813326"/>
+					</object>
+					<int key="connectionID">568</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -3197,6 +3225,7 @@
 							<reference ref="592537393"/>
 							<reference ref="18755947"/>
 							<reference ref="29254062"/>
+							<reference ref="343813326"/>
 						</object>
 						<reference key="parent" ref="513744381"/>
 					</object>
@@ -3954,6 +3983,20 @@
 						<reference key="object" ref="64331711"/>
 						<reference key="parent" ref="1005"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">566</int>
+						<reference key="object" ref="343813326"/>
+						<object class="NSMutableArray" key="children">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<reference ref="20660848"/>
+						</object>
+						<reference key="parent" ref="414427165"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">567</int>
+						<reference key="object" ref="20660848"/>
+						<reference key="parent" ref="343813326"/>
+					</object>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="flattenedProperties">
@@ -4221,6 +4264,8 @@
 					<string>560.IBWindowTemplateEditedContentRect</string>
 					<string>560.NSWindowTemplate.visibleAtLaunch</string>
 					<string>561.IBPluginDependency</string>
+					<string>566.IBPluginDependency</string>
+					<string>567.IBPluginDependency</string>
 					<string>57.IBEditorWindowLastContentRect</string>
 					<string>57.IBPluginDependency</string>
 					<string>57.ImportedFromIB2</string>
@@ -4398,8 +4443,8 @@
 					<reference ref="9"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<reference ref="9"/>
-					<string>{{435, 352}, {908, 745}}</string>
-					<string>{{435, 352}, {908, 745}}</string>
+					<string>{{364, 352}, {908, 745}}</string>
+					<string>{{364, 352}, {908, 745}}</string>
 					<reference ref="9"/>
 					<string>{{11, 666}, {480, 270}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -4517,6 +4562,8 @@
 					<string>{{312, 430}, {480, 270}}</string>
 					<boolean value="NO"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>{{118, 469}, {245, 183}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<reference ref="9"/>
@@ -4571,7 +4618,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">565</int>
+			<int key="maxID">568</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -4583,12 +4630,14 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSMutableArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>createDefinition:</string>
 							<string>preflight:</string>
 							<string>run:</string>
-							<string>runWithSample:</string>
+							<string>saveDefinitionToDisk:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
@@ -4623,7 +4672,7 @@
 			</object>
 		</object>
 		<int key="IBDocument.localizationMode">0</int>
-		<string key="IBDocument.LastKnownRelativeProjectPath">../../../../../../Users/tnesland/Documents/development/rrf/bundles/Notification/Notification.xcodeproj</string>
+		<string key="IBDocument.LastKnownRelativeProjectPath">___PROJECTNAME___.xcodeproj</string>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 	</data>
 </archive>

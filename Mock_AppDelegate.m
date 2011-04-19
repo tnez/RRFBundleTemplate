@@ -16,6 +16,7 @@
 #import "TKComponentPathOption.h"
 #import "TKComponentEnumOption.h"
 #import "RRF___PROJECTNAME___Controller.h"
+@class TKSession;
 
 /**
  Macros for logging functions conditional upon debug vs. production
@@ -178,7 +179,7 @@
     // setup component
     [component setSubject:subject];
     [component setSessionWindow:sessionWindow];
-    [component setDelegate:self];
+    [component setDelegate:(TKSession *)self];
 
     // test
     [self setErrorLog:[component preflightAndReturnErrorAsString]];
@@ -186,7 +187,7 @@
     // give back component
     [component release]; component = nil;
 }
-- (IBAction) run: (id)sender {
+- (IBAction)run: (id)sender {
 
     // create definition
     [self createDefinition:self];
@@ -199,7 +200,7 @@
     // setup component
     [component setSubject:subject];
     [component setSessionWindow:sessionWindow];
-    [component setDelegate:self];
+    [component setDelegate:(TKSession *)self];
     [[NSFileManager defaultManager] createDirectoryAtPath:[component tempDirectory] withIntermediateDirectories:YES attributes:nil error:nil];  
   
     // setup registry file
@@ -221,26 +222,26 @@
     [component begin];
 
 }
-- (IBAction) runWithSample: (id)sender {
-
-    // create component definition
-    [self setComponentDefinition:[NSDictionary dictionaryWithContentsOfFile:
-                                  [[NSBundle mainBundle] pathForResource:@"SampleDefinition" ofType:@"plist"]]];
-
-    // create component
-    component = [[TKComponentController loadFromDefinition:componentDefinition] retain];
-
-    // setup component
-    [component setSubject:subject];
-    [component setSessionWindow:setupWindow];
-
-    // if component is good to go...
-    if([component isClearedToBegin]) {
-        // ...go
-        [component begin];
-    } else { // if component is not good...
-        // ...
+- (IBAction)saveDefinitionToDisk: (id)sender {
+  // run a panel to select save location
+  NSSavePanel *panel = [NSSavePanel savePanel];
+  NSArray *fileTypes = [NSArray arrayWithObject:@"plist"];
+  [panel setAllowedFileTypes:fileTypes];
+  if([panel runModal])
+  {
+    DLog(@"We will save generated plist to disk");
+    [self createDefinition:self];
+    NSURL *_fileURL = [panel URL];
+    if(![componentDefinition writeToURL:_fileURL atomically:YES])
+    {
+      ELog(@"Could not write plist to disk");
+      [self setErrorLog:@"There was a problem writing the plist to disk"];
     }
+  }
+  else
+  {
+    DLog(@"User did cancel save operation");
+  }
 }
 
 #pragma mark Notifications

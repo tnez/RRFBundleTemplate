@@ -10,6 +10,8 @@
 #import "RRF___PROJECTNAME___Controller.h"
 
 #define RRFLogToTemp(fmt, ...) [delegate logStringToDefaultTempFile:[NSString stringWithFormat:fmt,##__VA_ARGS__]]
+#define RRFLogToFile(filename,fmt, ...) [delegate logString:[NSString stringWithFormat:fmt,##__VA_ARGS__] toDirectory:[delegate tempDirectory] toFile:filename]
+#define RRFPathToTempFile(filename) [[delegate tempDirectory] stringByAppendingPathComponent:filename]
 
 @implementation RRF___PROJECTNAME___Controller
 
@@ -72,6 +74,9 @@
  */
 - (void)recover {
   // if no recovery is needed, nothing need be done here
+  // but you may want to consider removing the old data file
+  // [[NSFileManager defaultManager] removeItemAtPath:RRFPathToTempFile([delegate defaultTempFile]) error:nil];
+  // -- 
 }
 /**
  Accept assignment for the component definition
@@ -110,6 +115,10 @@
  */
 - (BOOL)shouldRecover {
   return NO;  // this is the default; change if needed
+  /* Might consider to recover if a temporary data file exists
+     (un-comment to use)
+  return [[NSFileManager defaultManager] fileExistsAtPath:RRFPathToTempFile([delegate defaultTempFile]);
+   */
 }
 /**
  Perform any and all finalization required by component
@@ -120,8 +129,7 @@
   // remove any temporary data files (uncomment below to use default)
   /*
   NSError *tFileMoveError = nil;
-  [[NSFileManager defaultManager] removeItemAtPath:[delegate defaultTempFile]
-                                             error:&tFileMoveError];
+  [[NSFileManager defaultManager] removeItemAtPath:RRFPathToTempFile([delegate defaultTempFile]) error:&tFileMoveError];
   if(tFileMoveError) {
     ELog(@"%@",[tFileMoveError localizedDescription]);
     [tFileMoveError release]; tFileMoveError=nil;
