@@ -1,6 +1,6 @@
 ////////////////////////////////////////////////////////////
 //  Mock_AppDelegate.m
-//  ComRrfComponentVas
+//  RRF___PROJECTNAME___
 //  --------------------------------------------------------
 //  Author: Travis Nesland <tnesland@gmail.com>
 //  Created: 9/7/10
@@ -195,7 +195,7 @@
 
     // create component
     component = [[TKComponentController loadFromDefinition:componentDefinition] retain];
-    currentComponentID = [[componentDefinition valueForKey:RRF___PROJECTNAME___TaskNameKey] retain];  
+    currentComponentID = [[componentDefinition valueForKey:@"RRF___PROJECTNAME___TaskName"] retain];  
   
     // setup component
     [component setSubject:subject];
@@ -374,6 +374,10 @@
     [registry setValue:[subject study] forKey:RRFSessionProtocolKey];
     [registry setValue:[subject subject_id] forKey:RRFSessionSubjectKey];
     [registry setValue:[subject session] forKey:RRFSessionSessionKey];
+    [registry setValue:[subject drug] forKey:@"drug"];
+    [registry setValue:[subject drugLevel] forKey:@"drugLevel"];
+    [registry setValue:[subject drugCode] forKey:@"drugCode"];
+    [registry setValue:[subject drugDose] forKey:@"drugDose"];
     [registry setValue:[NSDate date] forKey:RRFSessionStartKey];
     DLog(@"Loaded global values in registry");
     // create empty history
@@ -383,17 +387,16 @@
     [registry setValue:[NSMutableDictionary dictionary]
                 forKey:RRFSessionComponentsKey];
     DLog(@"Created empty component block in registry");
-    
     // for our task, create a mutable dictionary with the key of task ID and
     // a nested runs mutable dictionary
     NSMutableDictionary *compSection =
     [registry valueForKey:RRFSessionComponentsKey];
     // task ID and a nested runs mutable dictionary
     [compSection setValue:[NSMutableDictionary dictionary]
-                   forKey:[[component definition] valueForKey:@"RRFDSSTTaskName"]];
+                   forKey:[[component definition] valueForKey:@"RRF___PROJECTNAME___TaskName"]];
     // create an empty run registry inside
     NSMutableDictionary *curSection=
-    [compSection valueForKey:[[component definition] valueForKey:@"RRFDSSTTaskName"]];
+    [compSection valueForKey:[[component definition] valueForKey:@"RRF___PROJECTNAME___TaskName"]];
     [curSection setValue:[NSMutableArray array] forKey:RRFSessionRunKey];
     
     DLog(@"Created entries for all components in registry");
@@ -421,6 +424,17 @@
     ELog(@"Unable to write the registry to disk");
   }
 }
+
+- (id)valueForRegistryKeyPath: (NSString *)aKeyPath {
+  if(aKeyPath)
+  {
+    return [registry valueForKeyPath:aKeyPath];
+  }
+  // key was nil
+  ELog(@"No key-path was provided");
+  return nil;
+}
+
 
 #pragma mark Parameters
 NSString * const RRFSessionProtocolKey = @"protocol";

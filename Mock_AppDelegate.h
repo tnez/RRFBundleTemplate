@@ -1,6 +1,6 @@
 ////////////////////////////////////////////////////////////
 //  Mock_AppDelegate.h
-//  ComRrfComponentVas
+//  RRF___PROJECTNAME___
 //  --------------------------------------------------------
 //  Author: Travis Nesland <tnesland@gmail.com>
 //  Created: 9/7/10
@@ -110,6 +110,13 @@
  in memory
  */
 - (void)registryDidChange;
+
+/**
+ Value for key path in registry
+ @param NSString* Key path for which you wish to query in the registry file.
+ @return Value for the given key path, or nil, if key path not found.
+*/
+- (id)valueForRegistryKeyPath: (NSString *)aKeyPath;
 
 /**
  PREFERENCE KEYS

@@ -184,7 +184,8 @@
 // }
 
 #pragma mark ADDITIONAL METHODS
-/** Add additional methods required for operation */
+// PLACE ANY NON-PROTOCOL METHODS HERE
+//////////////////////////////////////
 - (void)registerError: (NSString *)theError {
   // append the new error to the error log
   [self setErrorLog:[[errorLog stringByAppendingString:theError] 

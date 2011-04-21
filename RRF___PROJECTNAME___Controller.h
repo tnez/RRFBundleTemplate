@@ -118,9 +118,6 @@
 #pragma mark ADDITIONAL METHODS
 // PLACE ANY NON-PROTOCOL METHODS HERE
 //////////////////////////////////////
-/**
- Add the error to an ongoing error log
- */
 - (void)registerError: (NSString *)theError;
 
 #pragma mark Preference Keys
